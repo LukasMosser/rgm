@@ -44,11 +44,21 @@ compiling the Fortran library. To generate a simple 2‑D random model using the
 Python port:
 
 ```
-python example/python_example.py
+uv run python example/python_example.py
+```
+
+Before running, install the required Python packages in the `uv` environment:
+
+```
+uv pip install numpy matplotlib
 ```
 
 The script writes a `python_example_dhr.bin` file in little‑endian
-single‑precision format.
+single‑precision format.  You can display the generated image with:
+
+```
+uv run python example/plot_bin.py python_example_dhr.bin
+```
 
 # License
 &copy; 2024. Triad National Security, LLC. All rights reserved. 
