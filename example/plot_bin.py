@@ -13,6 +13,7 @@ def plot_bin(path: str, n1: int, n2: int, cmap: str = "gray") -> None:
     plt.title(path)
     plt.colorbar()
     plt.show()
+    plt.savefig("test.png", dpi=300)
 
 
 if __name__ == "__main__":
