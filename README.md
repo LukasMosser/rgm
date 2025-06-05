@@ -47,6 +47,12 @@ Python port:
 uv run python example/python_example.py
 ```
 
+For a version that inserts simple faults into the synthetic image run:
+
+```
+uv run python example/python_fault_example.py
+```
+
 Before running, install the required Python packages in the `uv` environment:
 
 ```
