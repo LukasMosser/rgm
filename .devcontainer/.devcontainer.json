@@ -1,0 +1,11 @@
+{
+  "name": "RGM‑dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "onCreateCommand": "bash .devcontainer/bootstrap.sh",
+  "settings": {
+    "terminal.integrated.shell.linux": "/usr/bin/bash"
+  }
+}
