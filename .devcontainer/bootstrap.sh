@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
-source /opt/intel/oneapi/setvars.sh
+# /etc/bash.bashrc already sources oneAPI vars.
 
-# Clone and build FLIT (first‑time only – 2‑3 min on medium machine)
+# Clone & build FLIT (first run only – ~2 min on a medium machine)
 if [ ! -d "$HOME/flit" ]; then
   git clone --depth=1 https://github.com/lanl/flit.git "$HOME/flit"
-  pushd "$HOME/flit/src"
-  make -j$(nproc)
-  popd
+  make -C "$HOME/flit/src" -j$(nproc)
 fi
 
-# Build RGM library
-pushd src && make -j$(nproc) && popd
-
-# Build the sample executables
-pushd example && make -j$(nproc) && popd
+# Build RGM and its examples
+make -C src     -j$(nproc)
+make -C example -j$(nproc)
