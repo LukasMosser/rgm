@@ -23,7 +23,7 @@ cd src
 make
 ```
 
-The compiled library file (with a name `librgm.a`) and module files will be at the directory [lib](lib). 
+The compiled library file (with a name `librgm.a`) and module files will be at the directory [lib](lib).
 
 We include several simple examples to use `RGM` in [example](example). To try these examples,
 
@@ -34,7 +34,37 @@ make
 
 The compiled executables will be at [example/bin](example/bin). Running these executables will generate images/faults/salt bodies in the directory. All the generated files will be in little-endian single-precision raw binary format, with dimensions specificed in the respective codes. 
 
-The [Makefile](example/Makefile) in the [example](example) directory can serve as an example on how to use `RGM` in your code, including path inclusion and link of the compiled library/modules. 
+The [Makefile](example/Makefile) in the [example](example) directory can serve as an example on how to use `RGM` in your code, including path inclusion and link of the compiled library/modules.
+
+## Python port
+
+An experimental Python implementation is provided in the `pyrgm` directory. It
+offers a minimal subset of the Fortran functionality and can be run without
+compiling the Fortran library. To generate a simple 2‑D random model using the
+Python port:
+
+```
+uv run python example/python_example.py
+```
+
+For a version that inserts simple faults into the synthetic image run:
+
+```
+uv run python example/python_fault_example.py
+```
+
+Before running, install the required Python packages in the `uv` environment:
+
+```
+uv pip install numpy matplotlib
+```
+
+The script writes a `python_example_dhr.bin` file in little‑endian
+single‑precision format.  You can display the generated image with:
+
+```
+uv run python example/plot_bin.py python_example_dhr.bin
+```
 
 # License
 &copy; 2024. Triad National Security, LLC. All rights reserved. 
